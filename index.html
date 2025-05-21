@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Shop</title>
+  <link rel="icon" href="Cookie.png" type="image/x-icon">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: white;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      font-size: 1.5rem;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .navbar .logo img {
+      height: 40px;
+    }
+
+    .navbar .slogan {
+      flex: 1;
+      text-align: center;
+      font-size: 1.2rem;
+      color: #d81b60;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    .navbar .menu {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .navbar .menu a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .contenedor {
+      display: flex;
+      justify-content: space-between;
+      margin: 3rem auto;
+      max-width: 1200px;
+    }
+
+    .contenedor-productos {
+      flex: 1;
+      padding: 2rem;
+      background-color: #fff;
+      border: 2px solid #ccc;
+      border-radius: 15px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.05);
+      margin-right: 3rem;
+    }
+
+    .contenedor-productos h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .producto {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      width: 200px;
+      text-align: center;
+      padding: 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .producto:hover {
+      transform: scale(1.03);
+    }
+
+    .producto img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .producto h3 {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+
+    .producto p {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .producto a {
+      text-decoration: none;
+      background-color: #333;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      display: inline-block;
+      font-size: 0.9rem;
+    }
+
+    .producto a:hover {
+      background-color: #555;
+    }
+
+    .contenedor-anuncios {
+      flex: 0.35;
+      padding: 2rem;
+      background-color: #fff;
+      border: 2px solid #ccc;
+      border-radius: 15px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .contenedor-anuncios h3 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .anuncio {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .anuncio h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .anuncio p {
+      font-size: 1rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="logo" href="index.html">
+      <img src="Cookie.png" alt="Logo">
+      <span>Cookie Shop</span>
+    </a>
+
+    <!-- Slogan en el centro -->
+    <div class="slogan">
+      Cookie Shop: Donde el K-pop es más dulce
+    </div>
+
+    <div class="menu">
+      <a href="index.html">Inicio</a>
+      <a href="carrito.html">Carrito</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+  </nav>
+
+  <div class="contenedor">
+    <div class="contenedor-productos">
+      <h2>Productos Destacados</h2>
+      <section class="productos">
+        <div class="producto">
+          <img src="polaroid/des.jpg" alt="Galleta 1">
+          <h3>Polaroid</h3>
+          <p>$15.00</p>
+          <a href="Polaroid.html">Ver producto</a>
+        </div>
+        <div class="producto">
+          <img src="Photocar/RN.png" alt="Galleta 2">
+          <h3>Photocards</h3>
+          <p>$15.00</p>
+          <a href="Photocards.html">Ver producto</a>
+        </div>
+        <div class="producto">
+          <img src="Posters/RN.png" alt="Galleta 3">
+          <h3>Posters</h3>
+          <p>$25.00</p>
+          <a href="Posters.html">Ver producto</a>
+        </div>
+        <div class="producto">
+          <img src="Postales/RN.png" alt="Galleta 4">
+          <h3>Postales</h3>
+          <p>$20.00</p>
+          <a href="Postales.html">Ver producto</a>
+        </div>
+        <div class="producto">
+          <img src="Stickers/RN.png" alt="Galleta 5">
+          <h3>Stickers</h3>
+          <p>$10.00</p>
+          <a href="Stickers.html">Ver producto</a>
+        </div>
+      </section>
+    </div>
+
+    <div class="contenedor-anuncios">
+      <h3>Anuncios</h3>
+      <div class="anuncio">
+        <h4>¡Nuevo Album!</h4>
+        <p>Nuevo album RUN disponible apartir del 13/10/2025</p>
+      </div>
+      <div class="anuncio">
+        <h4>Entrega</h4>
+        <p>La entrega de productos será en persona y gratis</p>
+      </div>
+      <div class="anuncio">
+        <h4>Evento</h4>
+        <p>Backstage: Lost in the Backrooms en México,consigue tu boleto en la página DinoTickets </p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito - Cookie Shop</title>
+  <link rel="icon" href="Cookie.png" type="image/x-icon">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #333;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      font-size: 1.5rem;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .navbar .logo img {
+      height: 40px;
+    }
+
+    .navbar .menu {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .navbar .menu a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .carrito-container {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: #ececec;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .carrito-item {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .carrito-item img {
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .carrito-item .detalles {
+      flex: 1;
+    }
+
+    .carrito-item .detalles h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .carrito-item .detalles p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .precio {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+
+    .total {
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: right;
+      margin-top: 2rem;
+    }
+
+    .boton-eliminar, .boton-comprar {
+      padding: 1rem;
+      background-color: #1b1815;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 1rem;
+      display: block;
+      width: 100%;
+    }
+
+    .boton-eliminar:hover, .boton-comprar:hover {
+      background-color: #141414;
+    }
+
+    .boton-comprar {
+      display: none; /* Oculto por defecto */
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="logo" href="index.html">
+      <img src="Cookie.png" alt="Logo">
+      <span>Cookie Shop</span>
+    </a>
+    <div class="menu">
+      <a href="index.html">Inicio</a>
+      <a href="carrito.html">Carrito</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+  </nav>
+
+  <div class="carrito-container">
+    <h1>Tu Carrito</h1>
+    <div id="carritoItems"></div>
+
+    <div class="total" id="total">Total: $0.00 MXN</div>
+
+    <button class="boton-eliminar" id="eliminar">Eliminar Compra</button>
+    <button class="boton-comprar" id="comprar">Comprar</button>
+  </div>
+
+  <script>
+    function cargarCarrito() {
+      const carrito = JSON.parse(localStorage.getItem("cart")) || [];
+      const carritoDiv = document.getElementById("carritoItems");
+      let total = 0;
+
+      carritoDiv.innerHTML = "";
+
+      if (carrito.length === 0) {
+        carritoDiv.innerHTML = "<p>No hay productos en tu carrito.</p>";
+        document.getElementById("comprar").style.display = "none";
+      } else {
+        document.getElementById("comprar").style.display = "block";
+      }
+
+      carrito.forEach(item => {
+        total += item.precio;
+
+        const itemDiv = document.createElement("div");
+        itemDiv.classList.add("carrito-item");
+
+        itemDiv.innerHTML = `
+          <img src="${item.imagen}" alt="${item.nombre}">
+          <div class="detalles">
+            <h2>${item.nombre}</h2>
+            <p>${item.precio} MXN</p>
+          </div>
+        `;
+
+        carritoDiv.appendChild(itemDiv);
+      });
+
+      document.getElementById("total").textContent = `Total: $${total.toFixed(2)} MXN`;
+    }
+
+    function eliminarCarrito() {
+      localStorage.removeItem("cart");
+      cargarCarrito();
+    }
+
+    function comprar() {
+      window.location.href = "https://www.instagram.com/cookie_shooopp/";
+    }
+
+    window.onload = cargarCarrito;
+    document.getElementById("eliminar").addEventListener("click", eliminarCarrito);
+    document.getElementById("comprar").addEventListener("click", comprar);
+  </script>
+
+</body>
+</html>
